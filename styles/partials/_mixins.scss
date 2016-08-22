@@ -16,7 +16,7 @@ USAGE: @include transition(all 0.2s ease-in-out);
   @each $prefix in $prefixes {
     #{$prefix}transition: $transition;
   }
-}
+};
 
 /*********************
 CSS3 GRADIENTS
@@ -30,7 +30,7 @@ CSS3 GRADIENTS
 	background-image: -moz-linear-gradient(top, $from, $to);
 	background-image: -o-linear-gradient(top, $from, $to);
 	background-image: linear-gradient(to bottom, $from, $to);
-}
+};
 
 /*********************
 BOX SIZING
@@ -42,6 +42,6 @@ BOX SIZING
 	-moz-box-sizing:    $type;
 	-ms-box-sizing:     $type;
 	box-sizing:         $type;
-}
+};
 
 

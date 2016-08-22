@@ -16,7 +16,7 @@
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="images/corp.ico">
 
 		<!--[if IE]>
 			<link rel="shortcut icon" href="favicon.ico">
@@ -26,9 +26,11 @@
 
 		<!-- CSS -->
 		<!-- build:css css/style.min.css -->
-		<link rel="stylesheet" href="bower_components/OwlCarousel/owl-carousel/owl.carousel.css" />
 		<link rel="stylesheet" type="text/css" href="styles/style.css" />
 		<!-- endbuild -->
+
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	</head>
 
@@ -56,7 +58,6 @@
 	<!-- build:libs js/libs.js -->
 	<script type="text/javascript" src="js/nonangular/lodash.min.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
-	<script type="text/javascript" src="bower_components/OwlCarousel/owl-carousel/owl.carousel.min.js"></script>
 	<!-- endbuild -->
 
 	<!-- Angular external libraries for application -->
@@ -74,7 +75,6 @@
 	<script type="text/javascript" src="components/services/queryService.service.js"></script>
 	<script type="text/javascript" src="components/directives/main.nav.directive.js"></script>
 	<script type="text/javascript" src="components/directives/responsive.nav.directive.js"></script>
-	<script type="text/javascript" src="components/directives/owl.slider.directive.js"></script>
 	<!-- endbuild -->
 
 	<!-- Application sections -->
@@ -82,6 +82,9 @@
 	<script type="text/javascript" src="app/factory.js"></script>
 	<script type="text/javascript" src="app/controller.js"></script>
 	<!-- endbuild -->
+
+	<!-- Chart -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 	<!-- templates from $templateCache -->
 	<!-- build:templates -->
