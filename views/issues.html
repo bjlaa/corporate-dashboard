@@ -1,3 +1,26 @@
 <div class="container cf">
-  <div>This is the issues</div>
+  <table>
+    <thead>
+      <tr class='table-titles' >
+        <th>Submission</th>
+        <th>Customer</th>
+        <th>Email</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Closed</th>
+        <th>Employee</th>
+      </tr>        
+    </thead>
+    <tbody>
+    <tr ng-repeat='data in main.data'>
+      <td> {{data.submission}} </td>
+      <td> {{data.customer}} </td>
+      <td> {{data.email}} </td>
+      <td> {{data.description}} </td>
+      <td> {{data.status}} </td>
+      <td> {{data.closed}} </td>
+      <td> {{data.employee}} </td>
+    </tr>     
+    </tbody>
+  </table>
 </div>

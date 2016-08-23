@@ -6,31 +6,57 @@
 	 * 
 	 */
   $(document).ready(function() {
-    google.charts.load('current', {packages: ['corechart', 'line', 'bar']});
-    var currentURL = window.location.hash.substr(1);
-    if(currentURL == "/metrics") {
-      google.charts.setOnLoadCallback(drawBasic);
-      // Loads the google column chart
-      google.charts.setOnLoadCallback(drawBasic2);
-    }
 
+    var currentURL = window.location.hash.substr(1);
+
+    // This checks whether our charts are loaded in order to display/hide our loader
+    if(currentURL == "/metrics") {
+        $('.spinner').show();
+        setTimeout(function() {
+          $('.spinner').hide();
+        }, 999);
+    }
     $(window).on('hashchange',function() {
       var currentURL = window.location.hash.substr(1);
       if(currentURL == "/metrics") {
-      google.charts.setOnLoadCallback(drawBasic);
-      // Loads the google column chart
-      google.charts.setOnLoadCallback(drawBasic2);
+        $('.spinner').show();
+        setTimeout(function() {
+          $('.spinner').hide();
+        }, 999);
+      }
+    });    
+
+    // This takes care of loading and drawing our charts
+
+    // Here we check whether we are on metrics page
+    google.charts.load('current', {packages: ['corechart', 'line', 'bar']});
+    if(currentURL == "/metrics") {
+      drawCharts();
+    }
+
+    // Here we also check whether we are on metrics page upon a hashchange
+    $(window).on('hashchange',function() {
+      var currentURL = window.location.hash.substr(1);
+      if(currentURL == "/metrics") {
+      drawCharts();
       }
     });  
   });
 
   var drawCharts = function() {
-    // Loads the google line chart 
 
+    // This setTimeout helps avoiding an loading error the first time 
+    // the Metrics page is acccessed
+    setTimeout(function() {
+      // Loads the google line chart 
+      google.charts.setOnLoadCallback(drawLine);
+      // Loads the google column chart
+      google.charts.setOnLoadCallback(drawBar);
+    }, 1000)
   }
 
   // Draws our line chart
-  function drawBasic() {
+  function drawLine() {
 
     var data = new google.visualization.DataTable();
     data.addColumn('number', 'X');
@@ -61,7 +87,7 @@
     chart.draw(data, options);
   }
   // Draws our column chart
-  function drawBasic2() {
+  function drawBar() {
 
     var data = new google.visualization.DataTable();
     data.addColumn('number', 'Date');
