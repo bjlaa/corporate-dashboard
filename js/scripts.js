@@ -6,7 +6,7 @@
 	 * 
 	 */
   $(document).ready(function() {
-
+/*
     var currentURL = window.location.hash.substr(1);
 
     // This checks whether our charts are loaded in order to display/hide our loader
@@ -125,9 +125,9 @@
       document.getElementById('chart_div2'));
 
     chart2.draw(data, options);
-  }  
+  }  */
 
-
+})
   
 
 

@@ -10,15 +10,15 @@
    */
   angular
     .module('corporateDash')
-    .factory('getDataFromAPI', getDataFromAPI);
+    .factory('getData', getData);
 
-  getDataFromAPI.$inject = ['$http', 'LocalStorage'];
+  getData.$inject = ['$http', 'LocalStorage'];
 
 
   ////////////
 
 
-  function getDataFromAPI($http, LocalStorage) {
+  function getData($http, LocalStorage) {
 
     return {
       loadData: loadData

@@ -14,12 +14,12 @@ npm install
 gulp
 ```
 
-
-
 - in order to access production version with minified assets, run:
 ```
 gulp build
 ```
+
+
 
 Sources:
 

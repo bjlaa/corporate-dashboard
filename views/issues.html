@@ -1,4 +1,5 @@
-<div class="container cf">
+<div ng-controller="DataController as dataCtr" class="container cf">
+  <h2> {{dataCtr.clients}} </h2>
   <h3 class='text-center' >Our Issues Data</h3>
   <table class='table-hover' >
     <thead>
@@ -13,7 +14,8 @@
       </tr>        
     </thead>
     <tbody>
-    <tr ng-repeat='data in main.data'>
+    <tr ng-repeat='data in dataCtr.data'>
+      <td>dataCtr.data</td>
       <td> {{data.submission}} </td>
       <td> {{data.customer}} </td>
       <td> {{data.email}} </td>

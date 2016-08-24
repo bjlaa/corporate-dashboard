@@ -114,6 +114,8 @@
 
     // put here everything that you need to run on page load
 
+    // This loads the google charts we need
+    google.charts.load('current', {packages: ['corechart', 'line', 'bar']});
   }
 
 
