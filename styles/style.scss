@@ -27,8 +27,7 @@ Date: Mar 2015
 // the grid
 @import "partials/grid";
 
-// our custom styling
-@import "partials/corporate";
+
 
 /*********************
 IMPORTING MODULES
@@ -87,4 +86,5 @@ LARGE VIEWING SIZE
 
 } // end of media query
 
-
+// our custom styling
+@import "partials/corporate";

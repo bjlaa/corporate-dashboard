@@ -1,3 +1,48 @@
+$customFont: Helvetica;
+$customGreen: rgba(0, 145, 105, 1);
+/*
+  General
+*/
+.appContainer {
+  margin-bottom: 80px;
+}
+
+.title-app {
+  @media(max-width: 767px){
+    font-size: 40pt;
+  }
+  font-family: $customFont;
+  font-size: 50pt;
+  font-weight: 300;
+  background-color: $customGreen;
+  color: white;
+  margin: 0;
+  padding: 40px 0 40px 0;
+}
+
+/*
+  Menu Nav
+*/
+
+.menu {
+  font-family: $customFont;
+  outline: solid 1px $customGreen;
+
+}
+.link-effect {
+  font-size: 0pt !important;
+  color: black !important;
+}
+
+/*
+  Boards titles
+*/
+
+.board-title {
+  margin: 40px 0 40px 0;
+  text-decoration: underline;
+}
+
 .chart {
   width: 300px;
 }
