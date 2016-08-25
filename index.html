@@ -45,13 +45,14 @@
 		<main-nav></main-nav>
 
 		<!-- Main view for templates -->
-		<div data-ng-view="" class="container"></div>
+		<div data-ng-view="" ng-controller="TitlesController as titlesCtrl" class="container"></div>
 
 	</body>
 
 	<!-- Vendors -->
 	<!-- build:nonangularlibs js/nonangularlibs.js -->
 	<script type="text/javascript" src="js/nonangular/jquery-1.11.2.min.js"></script>
+	<script src="lib/jquery.csv.js" ></script>
 	<!-- endbuild -->
 
 	<!-- Non-angular libraries -->
@@ -71,8 +72,9 @@
 	<!-- build:appcomponents js/appcomponents.js -->
 	<script type="text/javascript" src="app/app.js"></script>
 	<script type="text/javascript" src="app/config.js"></script>
-	<script src="components/controllers/data.ctr.js" ></script>
-	<script src="components/controllers/googleCharts.ctr.js" ></script>
+	<script src="components/controllers/issues.ctr.js" ></script>
+	<script src="components/controllers/titles.ctr.js" ></script>
+	<script type="text/javascript" src="components/services/issuesService.service.js"></script>
 	<script type="text/javascript" src="components/services/LocalStorage.service.js"></script>
 	<script type="text/javascript" src="components/services/queryService.service.js"></script>
 	<script type="text/javascript" src="components/directives/google.charts.directive.js"></script>

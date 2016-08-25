@@ -26,3 +26,4 @@ Sources:
 http://tobiasahlin.com/spinkit/
 https://css-tricks.com/responsive-data-tables/
 https://github.com/jbutko/AngularJS-Boilerplate
+https://github.com/evanplaice/jquery-csv/

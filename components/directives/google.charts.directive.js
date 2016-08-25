@@ -11,12 +11,10 @@
       restrict: 'E',
       templateUrl: 'components/directives/google-charts.html',
       link: function(scope, elem, attrs, ctrl) {
-        console.log(elem);
         const currentURL = window.location.hash.substr(1);
         const spinner = elem[0].childNodes[1].children[0];
         const line = elem[0].childNodes[1].children[1];
         const bar = elem[0].childNodes[1].children[2];
-        console.log(currentURL, spinner, line, bar);
 
         function hideSpinner() {
           spinner.hidden = false;
