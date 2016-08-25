@@ -59,6 +59,7 @@
 	<!-- build:libs js/libs.js -->
 	<script type="text/javascript" src="js/nonangular/lodash.min.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
+	<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
 	<!-- endbuild -->
 
 	<!-- Angular external libraries for application -->
@@ -66,6 +67,8 @@
 	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
 	<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
 	<script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+	<script type="text/javascript" src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
+	<script src='bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
 	<!-- endbuild -->
 
 	<!-- Angular components -->
@@ -74,6 +77,7 @@
 	<script type="text/javascript" src="app/config.js"></script>
 	<script src="components/controllers/issues.ctr.js" ></script>
 	<script src="components/controllers/titles.ctr.js" ></script>
+	<script src="components/controllers/map.ctr.js" ></script>
 	<script type="text/javascript" src="components/services/issuesService.service.js"></script>
 	<script type="text/javascript" src="components/services/LocalStorage.service.js"></script>
 	<script type="text/javascript" src="components/services/queryService.service.js"></script>

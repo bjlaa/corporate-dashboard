@@ -17,7 +17,8 @@
    */
   angular
     .module('corporateDash', [
-      'ngRoute'
+      'ngRoute',
+      'uiGmapgoogle-maps'
     ])
     .config(config);
 

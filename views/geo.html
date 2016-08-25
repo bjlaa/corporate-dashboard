@@ -1,9 +1,12 @@
-<div class="container cf">
+<div class="container cf" ng-controller="MapController as mapCtrl">
   <h3 class='text-center' >{{titlesCtrl.titles[1]}}</h3>
   <p class="text-center" >The geospatial view below shows our offices in Berlin, and for each, the number of our employees working there.</p>
-  <img class="img-responsive center-block" src="https://maps.googleapis.com/maps/api/staticmap?center=Berlin,DE&zoom=13&size=600x300&maptype=roadmap
-&markers=color:blue%7Clabel:1%7C52.520635, 13.414532&markers=color:blue%7Clabel:8%7C52.518024, 13.384319
-&markers=color:blue%7Clabel:9%7C52.517444, 13.413050
-&markers=color:blue%7Clabel:7%7C52.517444, 13.401050
-&key=AIzaSyCDL9ZfhQzJhheL1GmEK9fzdB_bUeGTrbI" alt="A geospatial view of our number of employees">
+<ui-gmap-google-map center="mapCtrl.map.center" zoom="mapCtrl.map.zoom">
+  <ui-gmap-marker
+          ng-repeat='marker in mapCtrl.markers'
+          idKey='marker.id'
+          coords='marker.coords'
+          >
+  </ui-gmap-marker>
+</ui-gmap-google-map>
 </div>
