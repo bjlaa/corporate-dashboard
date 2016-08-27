@@ -51,15 +51,19 @@
 
 	<!-- Vendors -->
 	<!-- build:nonangularlibs js/nonangularlibs.js -->
+
 	<script type="text/javascript" src="js/nonangular/jquery-1.11.2.min.js"></script>
-	<script src="lib/jquery.csv.js" ></script>
+
 	<!-- endbuild -->
 
 	<!-- Non-angular libraries -->
 	<!-- build:libs js/libs.js -->
+ 
 	<script type="text/javascript" src="js/nonangular/lodash.min.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>
-	<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+
+	<script src='js/nonangular/maps.js'></script>
+	
+
 	<!-- endbuild -->
 
 	<!-- Angular external libraries for application -->
@@ -69,21 +73,28 @@
 	<script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 	<script type="text/javascript" src="bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
 	<script src='bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
+
 	<!-- endbuild -->
 
 	<!-- Angular components -->
 	<!-- build:appcomponents js/appcomponents.js -->
+	
 	<script type="text/javascript" src="app/app.js"></script>
+
 	<script type="text/javascript" src="app/config.js"></script>
+
 	<script src="components/controllers/issues.ctr.js" ></script>
+
 	<script src="components/controllers/titles.ctr.js" ></script>
+
 	<script src="components/controllers/map.ctr.js" ></script>
-	<script type="text/javascript" src="components/services/issuesService.service.js"></script>
+	
 	<script type="text/javascript" src="components/services/LocalStorage.service.js"></script>
 	<script type="text/javascript" src="components/services/queryService.service.js"></script>
 	<script type="text/javascript" src="components/directives/google.charts.directive.js"></script>
 	<script type="text/javascript" src="components/directives/main.nav.directive.js"></script>
 	<script type="text/javascript" src="components/directives/responsive.nav.directive.js"></script>
+
 	<!-- endbuild -->
 
 	<!-- Application sections -->
@@ -94,6 +105,8 @@
 
 	<!-- Chart -->
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
 
 	<!-- templates from $templateCache -->
 	<!-- build:templates -->

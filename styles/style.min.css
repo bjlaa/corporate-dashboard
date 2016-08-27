@@ -131,7 +131,7 @@ a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 @media (max-width:767px){.title-app{font-size:40pt}
 }
 .menu{outline:#009169 solid 1px}
-.board-title{margin:40px 0 20px;text-decoration:underline}
+.board-title{margin:40px 0;text-decoration:underline}
 .chart{width:300px}
 .spinner{z-index:-100;margin:100px auto;width:50px;height:40px;text-align:center;font-size:10px}
 .spinner>div{background-color:#333;height:100%;width:6px;display:inline-block;-webkit-animation:sk-stretchdelay 1.2s infinite ease-in-out;animation:sk-stretchdelay 1.2s infinite ease-in-out}

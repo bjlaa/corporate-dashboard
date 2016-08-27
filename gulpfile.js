@@ -1,6 +1,6 @@
 /**
  * @author  Jozef Butko
- * @url		  www.jozefbutko.com/resume
+ * @url     www.jozefbutko.com/resume
  * @date    March 2015
  * @license MIT
  *
@@ -23,7 +23,8 @@ var gulp            = require('gulp'),
     $               = require('gulp-load-plugins')(),
     del             = require('del'),
     runSequence     = require('run-sequence');
-
+    inject          = require('gulp-inject');
+ 
 
 // optimize images
 gulp.task('images', function() {
@@ -48,7 +49,7 @@ gulp.task('browser-sync', function() {
 
 // minify JS
 gulp.task('minify-js', function() {
-  gulp.src('js/*.js')
+  gulp.src('js/*.js', '!js/nonangular/loader.min.js' )
     .pipe($.uglify())
     .pipe(gulp.dest('./_build/'));
 });
@@ -111,7 +112,7 @@ gulp.task('clean:build', function (cb) {
 
 // concat files
 gulp.task('concat', function() {
-  gulp.src('./js/*.js')
+  gulp.src('./js/*.js', '!js/nonangular/loader.min.js')
     .pipe($.concat('scripts.js'))
     .pipe(gulp.dest('./_build/'));
 });
@@ -186,11 +187,10 @@ gulp.task('usemin', function() {
     }))
     .pipe($.usemin({
       css: [$.minifyCss(), 'concat'],
-      libs: [$.uglify()],
-      nonangularlibs: [$.uglify()],
-      angularlibs: [$.uglify()],
-      appcomponents: [$.uglify()],
-      mainapp: [$.uglify()]
+      libs: [$.uglify({ mangle: false })],
+      angularlibs: [$.uglify({ mangle: false })],
+      appcomponents: [$.uglify({ mangle: false })],
+      mainapp: [$.uglify({ mangle: false })]
     }))
     .pipe(gulp.dest('./_build/'));
 });
@@ -205,7 +205,7 @@ gulp.task('templates', function() {
     ])
     .pipe($.minifyHtml())
     .pipe($.angularTemplatecache({
-      module: 'boilerplate'
+      module: 'corporateDash'
     }))
     .pipe(gulp.dest('_build/js'));
 });
@@ -244,7 +244,23 @@ gulp.task('default', ['browser-sync', 'sass', 'minify-css'], function() {
   gulp.watch('styles/**/*.scss', ['sass', 'minify-css']);
 });
 
+gulp.task('copyData', function () {
+     gulp
+      .src('./data')
+      .pipe(gulp.dest('./_build'))
+});
 
+gulp.task('copyIssues', function () {
+     gulp
+      .src('./data/issues.json')
+      .pipe(gulp.dest('./_build/data'))
+});
+
+gulp.task('copyTitles', function () {
+     gulp
+      .src('./data/titles.csv')
+      .pipe(gulp.dest('./_build/data'))
+});
 /**
  * build task:
  * 1. clean /_build folder
@@ -266,5 +282,8 @@ gulp.task('build', function(callback) {
     'usemin',
     'fonts',
     'build:size',
+    'copyData',
+    'copyIssues',
+    'copyTitles',
     callback);
 });
