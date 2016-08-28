@@ -127,7 +127,7 @@ a:link,a:visited:link{-webkit-tap-highlight-color:rgba(0,0,0,.3)}
 @media only screen and (min-width:1240px){.container{width:1240px}
 }
 .appContainer{margin-bottom:80px}
-.title-app{font-size:50pt;font-weight:300;background-color:#009169;color:#fff;margin:0;padding:40px 0}
+.title-app{font-size:50pt;font-weight:300;background-color:#009169;color:#fff;margin:0;padding:20px 0}
 @media (max-width:767px){.title-app{font-size:40pt}
 }
 .menu{outline:#009169 solid 1px}

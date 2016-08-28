@@ -45,7 +45,6 @@
             var data = new google.visualization.DataTable();
             data.addColumn('number', 'X');
             data.addColumn('number', 'Clients');
-            console.log(self.charts.line.rows);
             data.addRows(self.charts.line.rows);
 
             var options = self.charts.line.options;

@@ -7,8 +7,14 @@ An example of corporate dashboard built using Angular.
 - download or clone the repo
 - type in:
 ```
+bower install  
+```
+and
+
+```
 npm install
 ```
+
 - in order to access development version, run:
 ```
 gulp
@@ -19,6 +25,10 @@ gulp
 gulp build
 ```
 
+```
+gulp server-build 
+```
+and visit localhost:3000
 
 
 Sources:
