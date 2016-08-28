@@ -14,7 +14,6 @@
           var currentURL = window.location.hash.substr(1);
           var spinner = document.querySelector('.spinner');
 
-
           function hideSpinner() {
             spinner.hidden = false;
 

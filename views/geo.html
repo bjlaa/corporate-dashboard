@@ -1,13 +1,5 @@
 <div class="mapsContainer container cf" ng-controller="MapController as mapCtrl">
   <h3 class='board-title' >{{titlesCtrl.titles[1]}}</h3>
   <p class="text-center" >The geospatial view below shows our offices in Berlin, and for each, the number of our employees working there.</p>
-<ui-gmap-google-map center="mapCtrl.map.center" zoom="mapCtrl.map.zoom">
-  {{ console.log(mapCtrl) }}
-  <ui-gmap-marker
-          ng-repeat='marker in mapCtrl.markers'
-          idKey='marker.id'
-          coords='marker.coords'
-          >
-  </ui-gmap-marker>
-</ui-gmap-google-map>
+  
 </div>
