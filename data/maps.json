@@ -7,7 +7,7 @@
         "longitude": "13.414532" 
       },
       "options": {
-        "label": "awesome"
+        "label": "1"
       }
     },  
     "marker2": {
@@ -17,7 +17,7 @@
         "longitude": "13.384319" 
       },
       "options": {
-        "label": "awesome"
+        "label": "7"
       }
     },
     "marker3": {
@@ -27,7 +27,7 @@
         "longitude": "13.413050" 
       },
       "options": {
-        "label": "awesome"
+        "label": "9"
       }
     },     
     "marker4": {
@@ -37,7 +37,7 @@
         "longitude": "13.401050" 
       },
       "options": {
-        "label": "awesome"
+        "label": "6"
       }
     } 
   },

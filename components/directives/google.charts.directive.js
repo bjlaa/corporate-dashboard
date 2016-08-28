@@ -5,7 +5,12 @@
     .directive('googleCharts', googleCharts);
 
 
-    function googleCharts() {
+    function googleCharts($http) {
+
+      $http.get("../../data/charts.json")
+      .then(function(response) {
+        self.charts = response.data;
+      });
 
       var directiveDefinitionObject = {
         restrict: 'E',
@@ -20,10 +25,6 @@
             setTimeout(function() {
               spinner.hidden = true;
             }, 999);          
-          }
-
-          if(currentURL == "/metrics") {
-              hideSpinner();
           }
 
           var drawCharts = function() {
@@ -44,26 +45,10 @@
             var data = new google.visualization.DataTable();
             data.addColumn('number', 'X');
             data.addColumn('number', 'Clients');
+            console.log(self.charts.line.rows);
+            data.addRows(self.charts.line.rows);
 
-            data.addRows([
-              [0, 0],   [3, 10],  [5, 27], [7, 40], [10, 54], [11, 52], [12, 58], 
-              [13, 67], [14, 75], [15, 75], [16, 80]
-            ]);
-
-            var options = {
-              title: 'Our number of Customers over the last 16 years',
-              hAxis: {
-                title: 'Time'
-              },
-              vAxis: {
-                title: 'Customers'
-              }, 
-              viewWindow: {
-                min: [2000],
-                max: [2016]
-              },
-              width: 300
-            };
+            var options = self.charts.line.options;
 
             var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 
@@ -76,33 +61,9 @@
             data.addColumn('number', 'Date');
             data.addColumn('number', 'Issues');
 
-            data.addRows([
-              [2000, 1],
-              [2001, 2],
-              [2002, 3],
-              [2005, 4],
-              [2004, 5],
-              [2005, 6],
-              [2007, 7],
-              [2009, 8],
-              [2012, 9],
-              [2016, 10],
-            ]);
+            data.addRows(self.charts.bars.rows);
 
-            var options = {
-              title: 'Number of reported issues over the last 16 years',
-              hAxis: {
-                title: 'Date',
-                viewWindow: {
-                  min: [2000],
-                  max: [2016]
-                }
-              },
-              vAxis: {
-                title: 'Issues'
-              },
-              width: 300
-            };
+            var options = self.charts.bars.options;
 
             var chart2 = new google.visualization.ColumnChart(
               document.getElementById('chart_div2'));
@@ -110,15 +71,14 @@
             chart2.draw(data, options);
           }
 
-
           // Draws our charts only if matching url
           if(currentURL == "/metrics") {
+            hideSpinner();
             drawCharts();
           }
         }
-      };
-
-      return directiveDefinitionObject;
+      }; 
+      return directiveDefinitionObject;     
     }
 
 
