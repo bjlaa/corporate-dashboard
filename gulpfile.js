@@ -261,6 +261,16 @@ gulp.task('copyTitles', function () {
       .src('./data/titles.csv')
       .pipe(gulp.dest('./_build/data'))
 });
+gulp.task('copyCharts', function () {
+     gulp
+      .src('./data/charts.json')
+      .pipe(gulp.dest('./_build/data'))
+});
+gulp.task('copyMaps', function () {
+     gulp
+      .src('./data/maps.json')
+      .pipe(gulp.dest('./_build/data'))
+});
 /**
  * build task:
  * 1. clean /_build folder
@@ -285,5 +295,7 @@ gulp.task('build', function(callback) {
     'copyData',
     'copyIssues',
     'copyTitles',
+    'copyCharts',
+    'copyMaps',
     callback);
 });
