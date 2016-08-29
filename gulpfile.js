@@ -204,7 +204,7 @@ gulp.task('templates', function() {
     .pipe($.angularTemplatecache({
       module: 'corporateDash'
     }))
-    .pipe(gulp.dest('_build/js'));
+    .pipe(gulp.dest('./js'));
 });
 
 // reload all Browsers
