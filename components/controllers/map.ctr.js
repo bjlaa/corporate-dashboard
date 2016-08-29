@@ -35,7 +35,7 @@
             console.log("Update data");
             console.log(interval);
             getFile();  
-          }, 5000);        
+          }, 30000);        
         } else {
           clearInterval(interval);
         }
