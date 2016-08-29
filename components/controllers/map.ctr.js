@@ -28,12 +28,14 @@
       var interval;
 
       var checkUrl = function() {
+        clearInterval(interval);
         currentURL = window.location.hash.substr(1);
         if(currentURL == "/geo") {
           interval = setInterval(function() {
             console.log("Update data");
+            console.log(interval);
             getFile();  
-          }, 30000);        
+          }, 5000);        
         } else {
           clearInterval(interval);
         }

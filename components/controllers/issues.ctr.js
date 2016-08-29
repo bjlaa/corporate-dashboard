@@ -26,6 +26,7 @@
       var interval;
 
       var checkUrl = function() {
+        clearInterval(interval);
         currentURL = window.location.hash.substr(1);
         if(currentURL == "/issues") {
           getFile();

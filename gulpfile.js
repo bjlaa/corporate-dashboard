@@ -187,10 +187,7 @@ gulp.task('usemin', function() {
     }))
     .pipe($.usemin({
       css: [$.minifyCss(), 'concat'],
-      libs: [$.uglify({ mangle: false })],
-      angularlibs: [$.uglify({ mangle: false })],
-      appcomponents: [$.uglify({ mangle: false })],
-      mainapp: [$.uglify({ mangle: false })]
+      jsapp: [$.uglify({ mangle: false })],
     }))
     .pipe(gulp.dest('./_build/'));
 });
