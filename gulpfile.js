@@ -252,7 +252,7 @@ gulp.task('copyData', function () {
 
 gulp.task('copyIssues', function () {
      gulp
-      .src('./data/issues.json')
+      .src('./data/issues.csv')
       .pipe(gulp.dest('./_build/data'))
 });
 
