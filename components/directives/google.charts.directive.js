@@ -7,10 +7,13 @@
 
     function googleCharts($http) {
 
-      $http.get("../../data/charts.json")
-      .then(function(response) {
-        self.charts = response.data;
-      });
+      var getFile = function() {
+        $http.get("../../data/charts.json")
+        .then(function(response) {
+          self.charts = response.data;
+        })
+      }
+
 
       var directiveDefinitionObject = {
         restrict: 'E',
@@ -18,6 +21,27 @@
         link: function(scope, elem, attrs, ctrl) {
           var currentURL = window.location.hash.substr(1);
           var spinner = document.querySelector('.spinner');
+
+          //This is our long polling for the charts' data
+          var interval;
+
+          var checkUrl = function() {
+            currentURL = window.location.hash.substr(1);
+            if(currentURL == "/metrics") {
+              interval = setInterval(function() {
+                console.log("Update data");
+                getFile();  
+              }, 30000);        
+            } else {
+              clearInterval(interval);
+            }
+          }
+
+          getFile();
+          checkUrl();
+
+          window.onhashchange = checkUrl;
+
 
           function hideSpinner() {
             spinner.hidden = false;
