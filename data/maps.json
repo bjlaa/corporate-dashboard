@@ -6,9 +6,14 @@
         "latitude": "52.520635", 
         "longitude": "13.414532" 
       },
+      "showWindow" : "true",
       "options": {
-        "label": "1"
-      }
+        "labelContent": "14",
+        "animation": "4",
+        "labelAnchor": "0 0",
+        "labelClass": "marker-label"
+        },
+      "content": "We have 14 employees working here."
     },  
     "marker2": {
       "id": "2",
@@ -16,9 +21,14 @@
         "latitude": "52.518024", 
         "longitude": "13.384319" 
       },
+      "showWindow" : "true",
       "options": {
-        "label": "7"
-      }
+        "labelContent": "70",
+        "animation": "4",
+        "labelAnchor": "0 0",
+        "labelClass": "marker-label"
+      },
+      "content": "We have 70 employees working here."
     },
     "marker3": {
       "id": "3",
@@ -26,9 +36,14 @@
         "latitude": "52.517444", 
         "longitude": "13.413050" 
       },
+      "showWindow" : "true",
       "options": {
-        "label": "9"
-      }
+        "labelContent": "9",
+        "animation": "4",
+        "labelAnchor": "0 0",
+        "labelClass": "marker-label"
+      },
+      "content": "We have 9 employees working here."
     },     
     "marker4": {
       "id": "4",
@@ -36,9 +51,14 @@
         "latitude": "52.517444", 
         "longitude": "13.401050" 
       },
+      "showWindow" : "true",
       "options": {
-        "label": "6"
-      }
+        "labelContent": "22",
+        "animation": "4",
+        "labelAnchor": "0 0",
+        "labelClass": "marker-label"
+      },
+      "content": "We have 22 employees working here."
     } 
   },
 

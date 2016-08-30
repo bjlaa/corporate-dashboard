@@ -7,6 +7,7 @@
 
       var self = this;
 
+
       // Here we fetch our data and then append the google maps directive div
       var getFile = function() {
         $http.get("../../data/maps.json")
@@ -14,18 +15,20 @@
           self.maps = response.data;
         })
         .then(function() {
-          var zoomNum = parseInt(self.maps.map.zoom);
+          var zoomNum = Number(self.maps.map.zoom);
+          self.zoom = zoomNum;
           var containerMaps = angular.element(document.querySelector('.mapsContainer') );
-          var mapDiv = angular.element("<ui-gmap-google-map class='ggl-map' center='mapCtrl.maps.map.center' zoom='zoomNum'><ui-gmap-marker ng-repeat='marker in mapCtrl.maps.markers' idKey='marker.id' coords='marker.coords' options='marker.options'></ui-gmap-marker></ui-gmap-google-map>");
-          var compiledMapDiv = $compile(mapDiv)($scope);
+          var mapDiv = angular.element("<ui-gmap-google-map class='ggl-map' center='mapCtrl.maps.map.center' zoom='mapCtrl.zoom' ><ui-gmap-marker ng-repeat='marker in mapCtrl.maps.markers'  idKey='marker.id' coords='marker.coords' options='marker.options'><ui-gmap-window  show='false' ><div><p> {{ marker.content}} </p></div></ui-gmap-window></ui-gmap-marker></ui-gmap-google-map>");
+          var compiledMapDiv = $compile(mapDiv)($scope)
           if(document.querySelector('.ggl-map')) {
             return;
           } else {
             containerMaps.append(mapDiv);
-          }
-          
-        })
+          }          
+        });
       };
+
+
 
 
       //This is our long polling for the map's data
@@ -63,7 +66,6 @@
       var issuesResp = document.querySelector('.issuesResp');
 
       var navArray = [home, metrics, issues, homeResp, metricsResp, issuesResp];
-      console.log(navArray);
 
       navArray.map(function(e) {
         e.onclick= function() {

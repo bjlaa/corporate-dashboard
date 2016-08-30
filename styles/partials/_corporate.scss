@@ -194,3 +194,19 @@ only screen and (max-width: 767px),
 }
 
 .angular-google-map-container { height: 400px; }
+
+
+
+.marker-label {
+  width: 40px;
+  height: 30px;
+  color: gray;
+  font-family: Helvetica;
+  font-size: 16pt;
+  font-weight: 400;
+  text-align: center;
+  background-color: white;
+  outline: solid 1px gray;
+}
+
+
