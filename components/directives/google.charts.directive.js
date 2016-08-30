@@ -119,7 +119,10 @@
           var home = document.querySelector('.home');
           var geo = document.querySelector('.geo');
           var issues = document.querySelector('.issues');
-          var navArray = [home, geo, issues];
+          var homeResp = document.querySelector('.homeResp');
+          var geoResp = document.querySelector('.geoResp');
+          var issuesResp = document.querySelector('.issuesResp');
+          var navArray = [home, geo, issues, homeResp, geoResp, issuesResp];
 
           navArray.map(function(e) {
             e.onclick= function() {

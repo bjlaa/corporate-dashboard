@@ -58,8 +58,12 @@
       var home = document.querySelector('.home');
       var metrics = document.querySelector('.metrics');
       var issues = document.querySelector('.issues');
+      var homeResp = document.querySelector('.homeResp');
+      var metricsResp = document.querySelector('.metricsResp');
+      var issuesResp = document.querySelector('.issuesResp');
 
-      var navArray = [home, metrics, issues];
+      var navArray = [home, metrics, issues, homeResp, metricsResp, issuesResp];
+      console.log(navArray);
 
       navArray.map(function(e) {
         e.onclick= function() {

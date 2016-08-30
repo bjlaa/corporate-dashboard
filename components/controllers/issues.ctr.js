@@ -48,7 +48,10 @@
       var home = document.querySelector('.home');
       var geo = document.querySelector('.geo');
       var metrics = document.querySelector('.metrics');
-      var navArray = [home, geo, metrics];
+      var homeResp = document.querySelector('.homeResp');
+      var geoResp = document.querySelector('.geoResp');
+      var metricsResp = document.querySelector('.metricsResp');
+      var navArray = [home, geo, metrics, homeResp, geoResp, metricsResp];
 
       navArray.map(function(e) {
         e.onclick= function() {
