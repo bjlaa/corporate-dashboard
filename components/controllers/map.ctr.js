@@ -16,9 +16,14 @@
         .then(function() {
           var zoomNum = parseInt(self.maps.map.zoom);
           var containerMaps = angular.element(document.querySelector('.mapsContainer') );
-          var mapDiv = angular.element("<ui-gmap-google-map center='mapCtrl.maps.map.center' zoom='zoomNum'><ui-gmap-marker ng-repeat='marker in mapCtrl.maps.markers' idKey='marker.id' coords='marker.coords' options='marker.options'></ui-gmap-marker></ui-gmap-google-map>");
+          var mapDiv = angular.element("<ui-gmap-google-map class='ggl-map' center='mapCtrl.maps.map.center' zoom='zoomNum'><ui-gmap-marker ng-repeat='marker in mapCtrl.maps.markers' idKey='marker.id' coords='marker.coords' options='marker.options'></ui-gmap-marker></ui-gmap-google-map>");
           var compiledMapDiv = $compile(mapDiv)($scope);
-          containerMaps.append(mapDiv);
+          if(document.querySelector('.ggl-map')) {
+            return;
+          } else {
+            containerMaps.append(mapDiv);
+          }
+          
         })
       };
 
@@ -30,21 +35,37 @@
       var checkUrl = function() {
         clearInterval(interval);
         currentURL = window.location.hash.substr(1);
-        if(currentURL == "/geo") {
-          interval = setInterval(function() {
-            console.log("Update data");
-            console.log(interval);
-            getFile();  
-          }, 30000);        
-        } else {
-          clearInterval(interval);
-        }
+        setTimeout(function() {
+          if(currentURL == "/geo") {
+            interval = setInterval(function() {
+              getFile();  
+            }, 1000);        
+          } else {
+            clearInterval(interval);
+          }
+        }, 100);
       }
 
       getFile();
       checkUrl();
 
-      window.onhashchange = checkUrl;
+
+      var cleanPoll = function() {
+        console.log("cleaning poll");
+        clearInterval(interval);
+      }
+
+      var home = document.querySelector('.home');
+      var metrics = document.querySelector('.metrics');
+      var issues = document.querySelector('.issues');
+
+      var navArray = [home, metrics, issues];
+
+      navArray.map(function(e) {
+        e.onclick= function() {
+          cleanPoll();
+        };
+      });
 
     })
 })();

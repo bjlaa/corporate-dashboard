@@ -14,6 +14,7 @@
         })
       }
 
+      
 
       var directiveDefinitionObject = {
         restrict: 'E',
@@ -22,26 +23,7 @@
           var currentURL = window.location.hash.substr(1);
           var spinner = document.querySelector('.spinner');
 
-          //This is our long polling for the charts' data
-          var interval;
-
-          var checkUrl = function() {
-            clearInterval(interval);
-            currentURL = window.location.hash.substr(1);
-            if(currentURL == "/metrics") {
-              interval = setInterval(function() {
-                console.log("Update data");
-                getFile();  
-              }, 30000);        
-            } else {
-              clearInterval(interval);
-            }
-          }
-
-          getFile();
-          checkUrl();
-
-          window.onhashchange = checkUrl;
+          
 
 
           function hideSpinner() {
@@ -53,15 +35,18 @@
           }
 
           var drawCharts = function() {
-
-            // This setTimeout helps avoiding an loading error the first time 
-            // the Metrics page is acccessed
-            setTimeout(function() {
               // Loads the google line chart 
               google.charts.setOnLoadCallback(drawLine);
               // Loads the google column chart
               google.charts.setOnLoadCallback(drawBar);
-            }, 1000)
+
+          }
+          var drawChartsDelayed = function() {
+            // This setTimeout helps avoiding an loading error the first time 
+            // the Metrics page is acccessed
+            setTimeout(function() {
+              drawCharts();
+            }, 1000)            
           }
 
           // Draws our line chart
@@ -98,10 +83,52 @@
           // Draws our charts only if matching url
           if(currentURL == "/metrics") {
             hideSpinner();
-            drawCharts();
+            drawChartsDelayed();
           }
+
+          
+          //This is our long polling for the charts' data
+          var interval;
+
+          var checkUrl = function() {
+            clearInterval(interval);
+            setTimeout(function() {
+              currentURL = window.location.hash.substr(1);
+              if(currentURL == "/metrics") {
+                interval = setInterval(function() {
+                  getFile();
+                  drawCharts();
+                }, 1000);        
+              } else {
+                clearInterval(interval);
+              }
+            }, 100)
+            
+          }
+
+
+
+          getFile();
+          checkUrl();
+
+          var cleanPoll = function() {
+            console.log("cleaning poll");
+            clearInterval(interval);
+          }
+
+          var home = document.querySelector('.home');
+          var geo = document.querySelector('.geo');
+          var issues = document.querySelector('.issues');
+          var navArray = [home, geo, issues];
+
+          navArray.map(function(e) {
+            e.onclick= function() {
+              cleanPoll();
+            };
+          });
         }
       }; 
+
       return directiveDefinitionObject;     
     }
 

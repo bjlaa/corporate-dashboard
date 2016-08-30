@@ -230,7 +230,7 @@ gulp.task('build:size', function() {
 // default task to be run with `gulp` command
 // this default task will run BrowserSync & then use Gulp to watch files.
 // when a file is changed, an event is emitted to BrowserSync with the filepath.
-gulp.task('default', ['browser-sync', 'sass', 'minify-css'], function() {
+gulp.task('default', ['browser-sync', 'sass', 'minify-css', 'templates'], function() {
   gulp.watch('styles/*.css', function(file) {
     if (file.type === "changed") {
       reload(file.path);

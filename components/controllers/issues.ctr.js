@@ -7,7 +7,7 @@
       var self = this;
 
 
-      var getFile = function() {
+      var getFileIssues = function() {
         $http.get("../../data/issues.csv")
           .then(function(response) {
             var csvFile = response.data;
@@ -23,24 +23,37 @@
 
       //This is our long polling for the issues' data
       var currentURL = window.location.hash.substr(1);
-      var interval;
+      var intervalIssues;
 
-      var checkUrl = function() {
-        clearInterval(interval);
+      var checkUrlIssues = function() {
+        clearInterval(intervalIssues);
         currentURL = window.location.hash.substr(1);
         if(currentURL == "/issues") {
-          getFile();
-          interval = setInterval(function() {
-            console.log("Update data");
-            getFile();  
-          }, 30000);        
+          getFileIssues();
+          intervalIssues = setInterval(function() {
+            getFileIssues();  
+          }, 1000);        
         } else {
-          clearInterval(interval);
+          clearInterval(intervalIssues);
         }
       }
-      getFile();
-      checkUrl();
+      getFileIssues();
+      checkUrlIssues();
 
-      window.onhashchange = checkUrl;
+      var cleanPoll = function() {
+        console.log("cleaning poll");
+        clearInterval(intervalIssues);
+      }
+
+      var home = document.querySelector('.home');
+      var geo = document.querySelector('.geo');
+      var metrics = document.querySelector('.metrics');
+      var navArray = [home, geo, metrics];
+
+      navArray.map(function(e) {
+        e.onclick= function() {
+          cleanPoll();
+        };
+      });
     });
 })();
