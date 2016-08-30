@@ -23,7 +23,7 @@
       },
       "showWindow" : "true",
       "options": {
-        "labelContent": "70",
+        "labelContent": "50",
         "animation": "4",
         "labelAnchor": "0 0",
         "labelClass": "marker-label"

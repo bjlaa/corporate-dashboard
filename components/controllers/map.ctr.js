@@ -18,7 +18,7 @@
           var zoomNum = Number(self.maps.map.zoom);
           self.zoom = zoomNum;
           var containerMaps = angular.element(document.querySelector('.mapsContainer') );
-          var mapDiv = angular.element("<ui-gmap-google-map class='ggl-map' center='mapCtrl.maps.map.center' zoom='mapCtrl.zoom' ><ui-gmap-marker ng-repeat='marker in mapCtrl.maps.markers'  idKey='marker.id' coords='marker.coords' options='marker.options'><ui-gmap-window  show='false' ><div><p> {{ marker.content}} </p></div></ui-gmap-window></ui-gmap-marker></ui-gmap-google-map>");
+          var mapDiv = angular.element("<ui-gmap-google-map class='ggl-map' center='mapCtrl.maps.map.center' zoom='mapCtrl.zoom' ><ui-gmap-marker ng-repeat='marker in mapCtrl.maps.markers'  idKey='marker.id' coords='marker.coords' options='marker.options'><ui-gmap-window  show='false' ><div><p>We have {{ marker.options.labelContent }} employees here! </p></div></ui-gmap-window></ui-gmap-marker></ui-gmap-google-map>");
           var compiledMapDiv = $compile(mapDiv)($scope)
           if(document.querySelector('.ggl-map')) {
             return;

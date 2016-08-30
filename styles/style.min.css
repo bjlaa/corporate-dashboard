@@ -167,4 +167,4 @@ td:nth-of-type(6):before{content:"Closed"}
 td:nth-of-type(7):before{content:"Employee"}
 }
 .angular-google-map-container{height:400px}
-.marker-label{width:40px;height:30px;color:gray;font-size:16pt;font-weight:400;text-align:center;background-color:#fff;outline:#00008b solid 1px}
+.marker-label{width:40px;height:30px;color:gray;font-size:16pt;font-weight:400;text-align:center;background-color:#fff;outline:gray solid 1px}
